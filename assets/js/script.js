@@ -1,5 +1,5 @@
 // document.querySelector("#y-0-x-0").innerHTML = "R"
-
+let currentPosition;
 
 const manualInputBtn = document.querySelector('#submit-manual-input');
 manualInputBtn.addEventListener('click', event => {
@@ -13,12 +13,19 @@ manualInputBtn.addEventListener('click', event => {
     manualInputBtn.disabled = true;
     manualInputBtn.innerHTML = 'Loading...'
 
+    if (currentPosition != undefined) {
+        let i = document.querySelector(`${currentPosition.xYPositionId}`);
+        i.innerHTML = '';
+        i.classList.remove(currentPosition.fAxis);
+    }
+
     let newPosition = document.querySelector(`#y-${yAxis.value}-x-${xAxis.value}`);
     newPosition.innerHTML = "R";
-    newPosition.classList.add(`${fAxis.value}`)
-
-    // document.querySelector(`body > div.game-board.mt-5 > div:nth-child(${xAxis.value})`).innerHTML = "R"
-
+    newPosition.classList.add(`${fAxis.value}`);
+    currentPosition = {
+        xYPositionId: `#y-${yAxis.value}-x-${xAxis.value}`,
+        fAxis: fAxis.value
+    };
 
 
     xAxis.disabled = false;
@@ -26,5 +33,5 @@ manualInputBtn.addEventListener('click', event => {
     fAxis.disabled = false;
     manualInputBtn.disabled = false;
     manualInputBtn.innerHTML = 'Submit'
-   console.log(`${xAxis.value}\n${yAxis.value}\n${fAxis.value}`)
+    console.log(currentPosition);
 });
