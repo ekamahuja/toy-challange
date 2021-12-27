@@ -15,7 +15,7 @@
 
     <div class="game-board mt-5">
         <div class="box"></div>
-        <div class="box"></div>
+        <div class="box">2</div>
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
@@ -44,15 +44,20 @@
     <div class="container manual-input mt-5">
         <div class="mb-3">
             <label for="x-axis-input" class="form-label">X-Axis</label>
-            <input type="text" class="form-control" id="x-axis-input">
+            <input type="number" class="form-control" value="0" id="x-axis-input" required>
         </div>
         <div class="mb-3">
             <label for="y-axis-input" class="form-label">Y-Axis</label>
-            <input type="text" class="form-control" id="y-axis-input">
+            <input type="number" class="form-control" value="0" id="y-axis-input" required>
         </div>
         <div class="mb-3">
             <label for="f-axis-input" class="form-label">F-Axis</label>
-            <input type="text" class="form-control" id="f-axis-input">
+            <select id="f-axis-input" class="form-select">
+                <option value="north">North</option>
+                <option value="east">East</option>
+                <option value="south">South</option>
+                <option value="west">West</option>
+            </select>
         </div>
         <button class="btn btn-primary" id="submit-manual-input">Submit</button>
     </div>
