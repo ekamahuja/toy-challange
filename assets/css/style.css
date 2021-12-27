@@ -1,3 +1,4 @@
+/* game board and box styling*/
 .game-board {
   width: 600px;
   height: 600px;
@@ -10,8 +11,7 @@
   grid-template: repeat(5, 1fr) / repeat(5, 1fr);
 }
 
-.box
-{
+.box {
   border: 6px solid #2c3e50;
   border-radius: 2px;
   font-family: Helvetica;
@@ -22,18 +22,19 @@
   align-items: center;
 }
 
+/* F-axis styling (direction) */
 .f-north {
-    transform: rotate(-90deg);
+  transform: rotate(-90deg);
 }
 
 .f-east {
-    transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 .f-south {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 .f-west {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
