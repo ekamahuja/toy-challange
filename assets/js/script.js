@@ -1,4 +1,4 @@
-document.querySelector("#origin").innerHTML = "R"
+// document.querySelector("#origin").innerHTML = "R"
 
 
 const manualInputBtn = document.querySelector('#submit-manual-input');
@@ -13,7 +13,7 @@ manualInputBtn.addEventListener('click', event => {
     manualInputBtn.disabled = true;
     manualInputBtn.innerHTML = 'Loading...'
 
-
+    document.querySelector(`body > div.game-board.mt-5 > div:nth-child(${xAxis.value})`).innerHTML = "R"
 
 
    console.log(`${xAxis.value}\n${yAxis.value}\n${fAxis.value}`)
