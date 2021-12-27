@@ -2,12 +2,37 @@ let currentPosition;
 let xAxis = document.querySelector('#x-axis-input');
 let yAxis = document.querySelector('#y-axis-input');
 let fAxis = document.querySelector('#f-axis-input');
-let arrowInputs = document.querySelector("#arrow-input").children;
 const moveBtn = document.querySelector('#move-btn');
-let directionButtons = document.querySelector("#direction").children;
-
 const reportBtn = document.querySelector('#report-btn');
+let arrowInputs = document.querySelector("#arrow-input").children;
+let directionButtons = document.querySelector("#direction").children;
 const manualInputBtn = document.querySelector('#submit-manual-input');
+
+
+// Event listener for when the manual input button is clicked
+manualInputBtn.addEventListener('click', event => {
+    // Checks If there are any errors in the users Input (If yes then uses alert/notice function to alert the user and end the function)
+    if (!xAxis.value || !yAxis.value) return alert("The X-axis and Y-axis boxes are required!", "danger");
+    if (isNaN(xAxis.value)) return alert("The X-axis must be a number.", "danger");
+
+    // Disables Input boxes and buttons while actions are being performed
+    xAxis.disabled = true;
+    yAxis.disabled = true;
+    fAxis.disabled = true;
+    manualInputBtn.disabled = true;
+    manualInputBtn.innerHTML = 'Loading...'
+
+    // Once everything is disabled to run the function and send parms of the values grabbed from the input boxes and await until it is done (once it is completed, to reenable the the inputs and buttons for further use)
+    setPosition(xAxis.value, yAxis.value, fAxis.value).then(() => {
+        xAxis.disabled = false;
+        yAxis.disabled = false;
+        fAxis.disabled = false;
+        manualInputBtn.disabled = false;
+        manualInputBtn.innerHTML = 'Submit'
+    });
+});
+
+
 
 moveBtn.addEventListener("click", () => {
     direction = currentPosition.fAxis;
@@ -75,26 +100,7 @@ function moveInDirection(direction) {
     });
 };
 
-manualInputBtn.addEventListener('click', event => {
-    if (!xAxis.value || !yAxis.value) return alert("The X-axis and Y-axis boxes are required!", "danger");
-    if (isNaN(xAxis.value)) return alert("The X-axis must be a number.", "danger");
 
-    xAxis.disabled = true;
-    yAxis.disabled = true;
-    fAxis.disabled = true;
-    manualInputBtn.disabled = true;
-    manualInputBtn.innerHTML = 'Loading...'
-
-    setPosition(xAxis.value, yAxis.value, fAxis.value).then(() => {
-        xAxis.disabled = false;
-        yAxis.disabled = false;
-        fAxis.disabled = false;
-        manualInputBtn.disabled = false;
-        manualInputBtn.innerHTML = 'Submit'
-    });
-
-
-});
 
 function resetPosition() {
     let i = document.querySelector(`${currentPosition.xYPositionId}`);
@@ -129,6 +135,8 @@ function applyDirection(fPosition) {
     currentPosition.fAxis = fPosition;
 };
 
+
+// Function for sending alerts/notices to the user
 function alert(message, type) {
     let alert = document.createElement('div');
     alert.innerHTML = `<div class="alert alert-${type} alert-dismissible" role="alert">${message}<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>`;
@@ -138,10 +146,14 @@ function alert(message, type) {
     }, 3000);
 }
 
+
+// Updates the input box values to the current positions
 function updateInputBox() {
     xAxis.value = currentPosition.xAxis;
     yAxis.value = currentPosition.yAxis;
     fAxis.value = currentPosition.fAxis;
 }
 
+
+// Origin Position
 manualInputBtn.click();
