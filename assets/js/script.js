@@ -76,6 +76,9 @@ function moveInDirection(direction) {
 };
 
 manualInputBtn.addEventListener('click', event => {
+    if (!xAxis.value || !yAxis.value) return alert("The X-axis and Y-axis boxes are required!", "danger");
+    if (isNaN(xAxis.value)) return alert("The X-axis must be a number.", "danger");
+
     xAxis.disabled = true;
     yAxis.disabled = true;
     fAxis.disabled = true;
@@ -101,9 +104,9 @@ function resetPosition() {
 
 async function setPosition(xPosition, yPosition, fPosition) {
     if (currentPosition) applyDirection(fPosition);
-    if (xPosition > 4) return alert("Cannot move toy robot over X-5 axis!", "danger");
+    if (xPosition > 4) return alert("Cannot move toy robot over X-4 axis!", "danger");
     if (xPosition < 0) return alert("Cannot move toy robot lower than X-0 axis!", "danger");
-    if (yPosition > 4) return alert("Cannot move toy robot over Y-5 axis!", "danger");
+    if (yPosition > 4) return alert("Cannot move toy robot over Y-4 axis!", "danger");
     if (yPosition < 0) return alert("Cannot move toy robot lower than Y-0 axis!", "danger");
     if (currentPosition) resetPosition();
 
