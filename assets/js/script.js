@@ -13,7 +13,7 @@ manualInputBtn.addEventListener('click', event => {
     manualInputBtn.disabled = true;
     manualInputBtn.innerHTML = 'Loading...'
 
-    if (currentPosition != undefined) {
+    if (currentPosition) {
         let i = document.querySelector(`${currentPosition.xYPositionId}`);
         i.innerHTML = '';
         i.classList.remove(currentPosition.fAxis);
