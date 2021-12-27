@@ -19,6 +19,12 @@
 </head>
 <!-- Body -->
 <body>
+
+    <!-- Alerts -->
+    <div class="container mt-5">
+        <div class="mt-5" id="notice"></div>        
+    </div>
+    
     <!-- Table top -->
     <div class="game-board mt-5">
         <!-- y-4 row -->
@@ -75,13 +81,12 @@
                         <option value="f-west">West</option>
                     </select>
                 </div>
-                <button class="btn btn-primary" id="submit-manual-input">Submit</button>
+                <button class="btn btn-primary" id="submit-manual-input">Submit <i class="fas fa-check-circle"></i></button>
             </div>
             <div class="col-4 mt-4">
                 <!-- Arrow Input System -->
                 <div id="arrow-input" class="text-center">
-                    <button class="btn btn-secondary d-block m-auto mb-2" id="north"><i
-                            class="fas fa-arrow-up"></i></button>
+                    <button class="btn btn-secondary d-block m-auto mb-2" id="north"><i class="fas fa-arrow-up"></i></button>
                     <button class="btn btn-secondary" id="west"><i class="fas fa-arrow-left"></i></button>
                     <button class="btn btn-secondary" id="south"><i class="fas fa-arrow-down"></i></button>
                     <button class="btn btn-secondary" id="east"><i class="fas fa-arrow-right"></i></button>
@@ -89,20 +94,15 @@
                 <div class="d-grid gap-2 mt-5">
                     <!-- Direction Inputs -->
                     <div class="m-auto" id="direction">
-                        <button class="btn btn-dark rounded" id="left" type="button">Left</button>
-                        <button class="btn btn-dark rounded" id="right" type="button">Right</button>
+                        <button class="btn btn-dark rounded" id="left" type="button"><i class="fad fa-caret-left"></i> Left</button>
+                        <button class="btn btn-dark rounded" id="right" type="button">Right <i class="fad fa-caret-right"></i></button>
                     </div>
                     <!-- Other Buttons -->
-                    <button class="btn btn-success rounded" id="move-btn" type="button">Move</button>
-                    <button class="btn btn-success rounded" id="report-btn" type="button">Report</button>
+                    <button class="btn btn-success rounded" id="move-btn" type="button"><i class="fas fa-route"></i> Move</button>
+                    <button class="btn btn-success rounded" id="report-btn" type="button"><i class="fas fa-file-chart-pie"></i> Report</button>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Alerts -->
-    <div class="container mt-5">
-        <div class="mt-5" id="notice"></div>
     </div>
 
     <!-- Scripts -->
