@@ -1,4 +1,4 @@
-document.querySelector("#y-0-x-0").innerHTML = "R"
+// document.querySelector("#y-0-x-0").innerHTML = "R"
 
 
 const manualInputBtn = document.querySelector('#submit-manual-input');
@@ -15,9 +15,16 @@ manualInputBtn.addEventListener('click', event => {
 
     let newPosition = document.querySelector(`#y-${yAxis.value}-x-${xAxis.value}`);
     newPosition.innerHTML = "R";
+    newPosition.classList.add(`${fAxis.value}`)
 
     // document.querySelector(`body > div.game-board.mt-5 > div:nth-child(${xAxis.value})`).innerHTML = "R"
 
 
+
+    xAxis.disabled = false;
+    yAxis.disabled = false;
+    fAxis.disabled = false;
+    manualInputBtn.disabled = false;
+    manualInputBtn.innerHTML = 'Submit'
    console.log(`${xAxis.value}\n${yAxis.value}\n${fAxis.value}`)
 });

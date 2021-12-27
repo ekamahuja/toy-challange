@@ -21,3 +21,19 @@
   justify-content: center;
   align-items: center;
 }
+
+.f-north {
+    transform: rotate(-90deg);
+}
+
+.f-east {
+    transform: rotate(360deg);
+}
+
+.f-south {
+    transform: rotate(90deg);
+}
+
+.f-west {
+    transform: rotate(180deg);
+}
