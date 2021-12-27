@@ -111,7 +111,7 @@ async function setPosition(xPosition, yPosition, fPosition) {
     if (currentPosition) resetPosition();
 
     let newPosition = document.querySelector(`#y-${yPosition}-x-${xPosition}`);
-    newPosition.innerHTML = "R";
+    newPosition.innerHTML = `<img width="30px" src="./assets/images/arrow.png">`;
     newPosition.classList.add(fPosition);
     currentPosition = {
         xAxis: xPosition,
