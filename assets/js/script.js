@@ -37,6 +37,7 @@ for (let i = 0; i < directionButtons.length; i++) {
                 (directCommand == "left") ? applyDirection("f-north") : applyDirection("f-south");
                 break;
         };
+        updateInputBox();
     });
 };
 
@@ -119,12 +120,10 @@ async function setPosition(xPosition, yPosition, fPosition) {
 
 
 function applyDirection(fPosition) {
-    console.log(fPosition + "bruj");
     let currentP = document.querySelector(`${currentPosition.xYPositionId}`)
     currentP.classList.remove(currentPosition.fAxis);
     currentP.classList.add(fPosition);
     currentPosition.fAxis = fPosition;
-    console.log(fPosition)
 };
 
 function alert(message, type) {
